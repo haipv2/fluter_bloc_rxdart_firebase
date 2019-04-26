@@ -3,7 +3,7 @@ class Goal {
   final String _message;
   int _id;
 
-  Goal(this._title, this._message){
+  Goal(this._title, this._message) {
     this._id = DateTime.now().millisecondsSinceEpoch;
   }
 

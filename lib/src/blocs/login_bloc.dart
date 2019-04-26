@@ -28,20 +28,20 @@ class LoginBloc {
 
   final _validateEmail =
       StreamTransformer<String, String>.fromHandlers(handleData: (email, sink) {
-  if (email.contains('@')) {
-  sink.add(email);
-  } else {
-  sink.addError(StringConstant.emailValidateMessage);
-  }
+    if (email.contains('@')) {
+      sink.add(email);
+    } else {
+      sink.addError(StringConstant.emailValidateMessage);
+    }
   });
 
   final _validatePassword = StreamTransformer<String, String>.fromHandlers(
-  handleData: (password, sink) {
-  if (password.length > 3) {
-  sink.add(password);
-  } else {
-  sink.addError(StringConstant.passwordValidateMessage);
-  }
+      handleData: (password, sink) {
+    if (password.length > 3) {
+      sink.add(password);
+    } else {
+      sink.addError(StringConstant.passwordValidateMessage);
+    }
   });
 
   Future<int> submit() {

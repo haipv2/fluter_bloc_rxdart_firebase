@@ -25,21 +25,21 @@ class GoalsBloc {
   Function(String) get changeGoalMessage => _goalMessage.sink.add;
 
   final _validateMessage = StreamTransformer<String, String>.fromHandlers(
-  handleData: (goalMessage, sink) {
-  if (goalMessage.length > 10) {
-  sink.add(goalMessage);
-  } else {
-  sink.addError(StringConstant.goalValidateMessage);
-  }
+      handleData: (goalMessage, sink) {
+    if (goalMessage.length > 10) {
+      sink.add(goalMessage);
+    } else {
+      sink.addError(StringConstant.goalValidateMessage);
+    }
   });
 
   final _validateName = StreamTransformer<String, String>.fromHandlers(
-  handleData: (String name, sink) {
-  if (RegExp(r'[!@#<>?":_`~;[\]\\|=+)(*&^%0-9-]').hasMatch(name)) {
-  sink.addError(StringConstant.nameValidateMessage);
-  } else {
-  sink.add(name);
-  }
+      handleData: (String name, sink) {
+    if (RegExp(r'[!@#<>?":_`~;[\]\\|=+)(*&^%0-9-]').hasMatch(name)) {
+      sink.addError(StringConstant.nameValidateMessage);
+    } else {
+      sink.add(name);
+    }
   });
 
   void submit(String email) {
@@ -82,9 +82,9 @@ class GoalsBloc {
       docList.forEach((document) {
         String email = document.data[StringConstant.emailField];
         Map<String, String> goals =
-        document.data[StringConstant.goalField] != null
-            ? document.data[StringConstant.goalField].cast<String, String>()
-            : null;
+            document.data[StringConstant.goalField] != null
+                ? document.data[StringConstant.goalField].cast<String, String>()
+                : null;
         if (goals != null) {
           goals.forEach((title, message) {
             OtherGoal otherGoal = OtherGoal(email, title, message);

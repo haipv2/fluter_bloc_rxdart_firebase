@@ -11,12 +11,12 @@ class SignInForm extends StatefulWidget {
 }
 
 class SignInFormState extends State<SignInForm> {
-  LoginBloc _bloc;
+  LoginBloc _bloc = new LoginBloc();
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _bloc = LoginBlocProvider.of(context);
+//    _bloc = LoginBlocProvider.of(context);
   }
 
   @override

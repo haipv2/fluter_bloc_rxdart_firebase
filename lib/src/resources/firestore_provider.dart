@@ -25,7 +25,7 @@ class FirestoreProvider {
 
   Future<void> uploadGoal(String title, String documentId, String goal) async {
     DocumentSnapshot doc =
-    await _firestore.collection("users").document(documentId).get();
+        await _firestore.collection("users").document(documentId).get();
     Map<String, String> goals = doc.data["goals"] != null
         ? doc.data["goals"].cast<String, String>()
         : null;
@@ -54,7 +54,7 @@ class FirestoreProvider {
 
   void removeGoal(String title, String documentId) async {
     DocumentSnapshot doc =
-    await _firestore.collection("users").document(documentId).get();
+        await _firestore.collection("users").document(documentId).get();
     Map<String, String> goals = doc.data["goals"].cast<String, String>();
     goals.remove(title);
     if (goals.isNotEmpty) {
